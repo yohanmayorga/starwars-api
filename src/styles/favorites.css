@@ -1,0 +1,86 @@
+.mainFavorites {
+    position: fixed;
+    background-color: black;
+    width: 40%;
+    border-radius: 5px;
+    padding: 15px;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    box-shadow: 1px 1px 116px 100px rgba(106, 214, 67, 0.05);
+    -webkit-box-shadow: 1px 1px 116px 100px rgba(106, 214, 67, 0.05);
+    -moz-box-shadow: 1px 1px 116px 100px rgba(106, 214, 67, 0.05);
+}
+
+.mainFavorites2 {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.mainFavorites3 {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.warningFavorites {
+    position: fixed;
+    background-color: black;
+    width: 40%;
+    border-radius: 5px;
+    padding: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    box-shadow: 1px 1px 116px 100px rgba(106, 214, 67, 0.05);
+    -webkit-box-shadow: 1px 1px 116px 100px rgba(106, 214, 67, 0.05);
+    -moz-box-shadow: 1px 1px 116px 100px rgba(106, 214, 67, 0.05);
+}
+
+.favoritesBackground {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 90%;
+    z-index: 1;
+}
+
+.element {
+    color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+.favoritesTitle {
+    color: white;
+    display: flex;
+    margin: auto;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+
+.trashCan {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.favoritesHeroes {
+    width: 48%;
+    border-radius: 25px;
+    margin-bottom: 15px;
+    padding: 5px;
+    flex-direction: column;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 3%, rgba(106, 214, 67, 0.15) 100%);
+
+}

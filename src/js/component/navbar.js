@@ -1,17 +1,23 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import "../../styles/navbar.css";
+import logo from "../../img/logo.png";
+import { Context } from "../store/appContext";
+import { Favorites } from "../views/favorites";
+
 
 export const Navbar = () => {
-	return (
-		<nav className="navbar navbar-light bg-light mb-3">
-			<Link to="/">
-				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
-			</Link>
-			<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary">Check the Context in action</button>
-				</Link>
-			</div>
-		</nav>
-	);
+
+    const { store, actions } = useContext(Context);
+    const [favorites, setFavorites] = useState(false)
+
+    return (
+        <div className="navbarContainer">
+            <Favorites
+                open={favorites}
+                close={setFavorites}
+            />
+            <img src={logo} className="logoImage" alt="logo" />
+            <button type="button" class="btn btn-success" onClick={() => { setFavorites(true) }}>Favorites {store.favorites.length + store.planets.length}</button>
+        </div>
+    );
 };

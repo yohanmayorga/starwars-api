@@ -1,0 +1,45 @@
+#planetsContainer {
+    display: flex;
+    margin: auto;
+    flex-direction: row;
+    overflow: hidden;
+    width: 100%;
+    overflow: auto;
+    margin-bottom: 20px;
+}
+
+.card {
+    min-width: 15%;
+    margin-right: 10px;
+    cursor: pointer;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(9, 94, 121, 1) 100%);
+    margin-bottom: 15px;
+    color: white;
+}
+
+.card-img-top {
+    width: 95%;
+    display: flex;
+    margin: auto;
+    margin: 2.5%;
+}
+
+#planetsTitle {
+    display: flex;
+    color: white;
+}
+
+#planetsButtons {
+    display: flex;
+    justify-content: space-between;
+}
+
+#planetsLine {
+    display: flex;
+    margin: auto;
+    height: 5px;
+    width: 100%;
+    background: rgba(9, 94, 121, 0.59);
+    margin-bottom: 15px;
+}

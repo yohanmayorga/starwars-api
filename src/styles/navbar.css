@@ -1,0 +1,11 @@
+.navbarContainer {
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    width: 95%;
+    margin-top: 20px;
+}
+
+.logoImage {
+    width: 5%;
+}
