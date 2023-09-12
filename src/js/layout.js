@@ -4,6 +4,7 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Planets } from "./views/planets";
 import { Heroes } from "./views/heroes";
+import { Cars } from "./views/cars";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
@@ -26,6 +27,7 @@ const Layout = () => {
 				<div className="mainContentBackground">
 					<Heroes />
 					<Planets />
+					<Cars />
 				</div>
 				<Routes>
 					<Route path="/demo" element={<Demo />} />

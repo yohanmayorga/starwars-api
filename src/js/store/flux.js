@@ -3,10 +3,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			planetsList: [],
 			planetDetail: [],
+			planets: [],
+
 			heroesList: [],
 			heroDetail: [],
 			favorites: [],
-			planets: [],
+
+			carsList: [],
+			carDetail: [],
+			carsFavorites: [],
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -24,6 +29,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(urlHeroes)
 					.then(res => res.json())
 					.then(data => { setStore({ ...store, heroesList: [...store.heroesList, ...data.results] }) })
+					.catch(err => console.error(err))
+				return true
+			},
+
+			getCars: (urlCars) => {
+				const store = getStore()
+				fetch(urlCars)
+					.then(res => res.json())
+					.then(data => { setStore({ ...store, carsList: [...store.carsList, ...data.results] }) })
 					.catch(err => console.error(err))
 				return true
 			},
@@ -58,10 +72,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 				return true
 			},
 
+			getCarDetail: (urlCarDetail, idc) => {
+				const store = getStore()
+				fetch(urlCarDetail)
+					.then(res => res.json())
+					.then(data => {
+						const car = {
+							id: idc,
+							...data.result.properties
+						}
+						setStore({ ...store, carDetail: [...store.carDetail, car] })
+					})
+					.catch(err => console.error(err))
+				return true
+			},
+
 			deleteDetails: () => {
 				const store = getStore()
 				setStore({ ...store, planetDetail: [] })
 				setStore({ ...store, heroDetail: [] })
+				setStore({ ...store, carDetail: [] })
 			},
 
 			heroesFavorites: (patron, id) => {
@@ -86,6 +116,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					planets.unshift({ id, name: patron })
 				}
 				setStore({ ...store, planets })
+			},
+
+			carsFavorites: (patron, id) => {
+				const store = getStore()
+				const cars = store.carsFavorites
+				const existingCar = cars.find(car => car.id === id)
+				if (existingCar) {
+					cars.splice(cars.indexOf(existingCar), 1)
+				} else {
+					cars.unshift({ id, name: patron })
+				}
+				setStore({ ...store, cars })
 			}
 		}
 	};

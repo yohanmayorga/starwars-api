@@ -9,12 +9,14 @@ export const Favorites = ({ open, close }) => {
 
     const prueba = (patron, id) => {
         actions.heroesFavorites(patron, id)
-        console.log(patron)
     }
 
     const prueba2 = (patron, id) => {
         actions.planetsFavorites(patron, id)
-        console.log(patron)
+    }
+
+    const prueba3 = (patron, id) => {
+        actions.carsFavorites(patron, id)
     }
 
     return (
@@ -23,15 +25,15 @@ export const Favorites = ({ open, close }) => {
             <div className="favoritesBackground"></div>
 
 
-            {store.favorites.length + store.planets.length == 0 &&
+            {store.favorites.length + store.planets.length + store.carsFavorites.length == 0 &&
                 <div className="warningFavorites">
                     <h1 className="favoritesTitle">There are no favorites</h1>
                     <button type="button" class="btn btn-success" onClick={() => { close(false) }}>Close</button>
                 </div>
             }
 
-            <div className="mainFavorites" style={{ display: store.favorites.length != 0 || store.planets.length != 0 ? "flex" : "none" }}>
-                <h1 className="favoritesTitle">Favorites: {store.favorites.length + store.planets.length}</h1>
+            <div className="mainFavorites" style={{ display: store.favorites.length != 0 || store.planets.length != 0 || store.carsFavorites.length != 0 ? "flex" : "none" }}>
+                <h1 className="favoritesTitle">Favorites: {store.favorites.length + store.planets.length + store.carsFavorites.length}</h1>
                 <div className="mainFavorites2">
                     {store.favorites.length != 0 &&
                         <div className="favoritesHeroes">
@@ -45,6 +47,13 @@ export const Favorites = ({ open, close }) => {
                             <h5 className="favoritesTitle">Planets</h5>
                             <ul>
                                 {store.planets.map((element) => <li key={(element.id)} className="element">{element.name}<p className="trashCan" onClick={() => { prueba2(element.name, element.id) }}>🗑️</p></li>)}
+                            </ul>
+                        </div>}
+                    {store.carsFavorites.length != 0 &&
+                        <div className="favoritesHeroes">
+                            <h5 className="favoritesTitle">Cars</h5>
+                            <ul>
+                                {store.carsFavorites.map((element) => <li key={(element.id)} className="element">{element.name}<p className="trashCan" onClick={() => { prueba3(element.name, element.id) }}>🗑️</p></li>)}
                             </ul>
                         </div>}
                 </div>

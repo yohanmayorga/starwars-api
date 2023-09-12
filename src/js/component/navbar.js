@@ -17,7 +17,7 @@ export const Navbar = () => {
                 close={setFavorites}
             />
             <img src={logo} className="logoImage" alt="logo" />
-            <button type="button" class="btn btn-success" onClick={() => { setFavorites(true) }}>Favorites {store.favorites.length + store.planets.length}</button>
+            <button type="button" class="btn btn-success" onClick={() => { setFavorites(true) }}>Favorites {store.favorites.length + store.planets.length + store.carsFavorites.length}</button>
         </div>
     );
 };
